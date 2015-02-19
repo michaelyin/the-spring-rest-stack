@@ -6,9 +6,15 @@ go up to the web folder, and do a quick build
 
 mvn clean package -Dmaven.test.skip=true
 
-command line to run the service:
+command line to run the service in https mode:
 
 java -Dspring.profiles.active=production -Dkeystore.file=file:///C:\\Users\\Xuecheng\\git\\the-spring-rest-stack\\code\\web\\oauth\\src\\main\\resources\\keystore.p12 -jar oauth/target/oauth-1.0.0.BUILD-SNAPSHOT.jar
+
+
+to disable the insecure CA, turn on flag --insecure:
+
+ curl --insecure -X POST -vu android-crm:123456 https://localhost:8443/oauth/token -H "Accept: application/json" -d "password=cowbell&username=joshlong&grant_type=password&scope=write&client_secret=123456&client_id=android-crm"
+
 
 # The OAuth-secured REST Endpoint 
 
